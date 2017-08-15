@@ -6,14 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://qingmianshou.github.io">
-  <title>Z博客</title>
+  <title>categories | Z博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Z博客">
-<meta property="og:url" content="https://qingmianshou.github.io/index.html">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="https://qingmianshou.github.io/categories/index.html">
 <meta property="og:site_name" content="Z博客">
+<meta property="og:updated_time" content="2017-08-15T01:41:52.433Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Z博客">
+<meta name="twitter:title" content="categories">
   
     <link rel="alternative" href="/atom.xml" title="Z博客" type="application/atom+xml">
   
@@ -165,173 +166,117 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-inner-class" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/14/inner-class/">java内部类</a>
+    <h1 class="article-title" itemprop="name">
+      categories
     </h1>
   
 
         
-        <a href="/2017/08/14/inner-class/" class="archive-article-date">
-  	<time datetime="2017-08-14T07:46:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-14</time>
+        <a href="/categories/index.html" class="archive-article-date">
+  	<time datetime="2017-08-15T01:12:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><center></center></p>
-<p>###java内部类<br></p>
-<p>#####</p><p align="left">链接到内部类</p><br>当生成一个内部类的对象时，此对象与制造它的外围对象之间就有了一种联系，它能访问其外围对象的所有成员，不需要特殊条件。(原因：在外围对象创建内部类对象时，内部类对象必定会秘密地捕获一个指向那个外围类对象的引用，当内部类访问此外围类的成员时，就会用那个引用来选择外围类的成员，该过程编译器会处理)。<p></p>
-<p>当需要生成对外部类对象的引用时，使用<code>ClassName.this</code>即可(这样产生的引用自动地具有正确的类型，在编译期就被知晓并受到检查，因此没有任何运行时开销)。</p>
-<p>有时可能需要告知某些对象，去创建其某个内部类的对象，要实现此目的，必须在new表达式中提供对其他外部类对象的引用，这需要使用.new语法。例如 <code>Outer.Inner inner = outer.new Inner();</code> ，”.new”语法能产生正确的作用域，所以不必在调用构造其实限定类名。</p>
-<p>#####</p><p align="left">内部类与向上转型</p><br>当将内部类向上转型为其基类,尤其是转型成一个接口的时候，内部类就有了用武之地。这是因为此内部类对接口的实现对外界是透明的，能够完全不可见，并且不可用。所得到的知识指向基类或接口的引用，所以能够很方便地隐藏实现细节。<p></p>
-<p>######</p><p align="left">工厂模式</p><br>    interface Game{ boolean move();}<br>    interface GameFactory{ Game getGame();}<br>    class Checkers implements Game{<br>        private Checkers(){}<br>        private int moves = 0;<br>        private static final int MOVES = 3;<br>        public boolean move(){<br>            print(“Checkes move “+ moves;);<br>            return ++moves !=MOVES;<br>        }<br>        public static gameFactory factory = new gameFactory(){<br>            public Game getGame(){ return new Checkers(); }<br>        };<br>    }<br>    public class Games{<br>        public static void main(String [] args){<br>           Game checkers =  Checkes.factory.getGame();<br>        }<br>    }<p></p>
-<p>#####</p><p align="left">方法和作用域内的内部类</p><br>以上都只是内部类的典型用途。内部类的语法覆盖了大量的其他的更加难以理解的技术。例如,可以再一个方法里面或者在任意的作用域内定义内部类。理由有两点：<p></p>
-<ol>
-<li>如前所示，实现某个类型的接口，于是可以常见并返回对其的引用。</li>
-<li>解决一个复杂的问题，想创建一个类来辅助解决但又不希望这个类是公共可用的。</li>
-</ol>
-<p>后续将实现：</p>
-<ol>
-<li>定义在方法中的类。</li>
-<li>定义在作用域中的类，此作用域在方法的内部。(除作用域外，其他与普通类一样)</li>
-<li>实现接口的匿名类。<code>new Content(){...}</code>创建一个继承自Content的匿名类的对象。</li>
-<li>扩展了有非默认构造器的类。<code>new Content(param){...}</code></li>
-<li>执行字段初始化。</li>
-<li>通过实例初始化实现构造(匿名类不可能有构造器)。</li>
-</ol>
-<p>当定义一个匿名内部类，我们希望使用其外部定义的对象，那么编译器会要求其参数引用是final的，不然会有一个编译时错误信息。</p>
-<p>匿名内部类没有命名构造函数(根本没有名字)，但通过实例初始化，就能够达到为匿名内部类创建构造器的效果。如下：</p>
-<pre><code> abstract class Base{
-     public Base(int i){
-        print(&quot;Base constructor, i=&quot;+i);
-     }
-     public abstract void f();
-}
- public class AnonymousConstructor{
-    public static Base getBase(int i){
-        return new Base(i){}
-        { print(&quot;Inside instance init!&quot;); }
-        public void f(){
-            print(&quot;In anonymous f()&quot; );
-        }
-   }
-}
-</code></pre><p>匿名内部类也有一些限制，只能实现一个接口或者一个抽象类。</p>
-<p>#####</p><p align="left">嵌套类</p><br>如果不需要内部类对象与其外围类对象之间有联系，那么就可以将内部类声明为static，这通常称为嵌套类。普通的内部类对象隐式保存了一个指向外围对象的引用。嵌套类意味着：<p></p>
-<ol>
-<li>要创建嵌套类的对象，并不需要其外围类的对象。</li>
-<li>并不能从嵌套类的对象中访问<code>非静态</code>的外围类对象。</li>
-</ol>
-<p>嵌套类与普通类的另一个区别。普通内部类的字段和方法，只能放在类的外部层次上，所以普通的内部类不能有static数据和static字段，也不能包括嵌套类。嵌套类可以包括所有。</p>
-<p>#####</p><p align="left">接口内部的类</p><br>正常情况下，不能在接口中放置任何代码，但是嵌套类可以作为接口的一部分。在接口中的任何类都自动转化成public和static的。因为类是static的，只是将嵌套类置于接口的命名空间内，这并不违反接口的规则。<p></p>
-<pre><code>public interface ClassInInterface{
-    void howdy();
-    class Test implements ClassInInterface{
-        void howdy(){
-            print(&quot;Howdy&quot;);
-        }
-        public static void main(String [] args){
-            new Test().howdy();
-        }
-    }
-}
-</code></pre><p>如果想要创建某些公共代码，使得它们可以被某个接口实现共用，那么使用接口内部的嵌套会显得很方便。</p>
-<p>#####</p><p align="left">使用内部类的原因</p><br>每个内部类都能独立继承一个(接口的)实现，外围类是否实现对内部类没有影响。故内部类可实现“多继承”。<br>内部类的一些特性：<p></p>
-<ol>
-<li>内部类可有多个实例，每个实例都有自己的状态信息，并且与外围类对象的信息相互独立。</li>
-<li>单个外围类中，可以让多个内部类以不同的方式实现统一个借口，或者继承同一个类。</li>
-<li>创建内部咧对象的时刻不依赖与外围类对象的创建。</li>
-<li>内部类没有令人迷惑的“is-a”关系，它就是一个独立的实体。</li>
-</ol>
-<p>#####</p><p align="left">闭包与回调</p><br>闭包(closure)是一个可调用的对象，它记录了一些信息，这些信息来自于创建它的作用域。<br>通过这个定义，可以看出内部类是面相对象的闭包，不仅包括外围类对象(创建内部类的作用域)的信息，还拥有一个指向此外围类对象的引用，在此作用域内，内部类有权操作所有的成员。<br>内部类实现回调：<p></p>
-<pre><code>interface Incrementable{
-    void increment();
-}
-//Simple implement
-class Callee1 implements Incrementable{
-    private int i = 0;
-    public void increment(){
-        i++;
-        print(i);
-    }
-}
-class MyIncrement{
-    public void increment(){ print(&quot;Other operation!&quot;);}
-    static void f(MyIncrement mi){ mi.increment(); } 
-}
-//if the class must implement increment() in some other way ,you must
-//use an inner class ;
-class Callee2 extends MyIncrement{
-    private int i = 0;
-    public void increment(){
-        super.increment();
-        i++;
-        print(i);
-    }
-    private class Closure implements Incrementable{
-        public void increment(){
-            Callee2.this.increment();
-        }
-    }
-    Incrementable getCallbackReference(){
-        return new Closure();
-    }
-}
-class Caller{
-    private Incrementable callbackReference;
-    Caller(Incrementable cbh){callbackReference = cbh;}
-    void go(){ callbackReference.increment();}
-}
-</code></pre><p>内部类不可以被覆盖，即在子类中声明与父类一样的内部类，两者是没有关系的。<br>局部内部类与匿名内部类，如果不需要重载构造函数，可用匿名代替。<br>由于每个类都会产生一个.class文件，其中包含了如何创建该类型的对象的全部信息。<br>内部类有严格的规则：外围类的名称，加上“$”，再加上内部类的名称。<br>如果内部类是匿名的，编译器会简单的产生一个数字作为其标识符。<br>本文摘抄于java编程思想。</p>
-
+        
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">标签1</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">标签2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">标签n</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/14/inner-class/">展开全文 >></a>
-        </p>
-      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
 
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://qingmianshou.github.io/categories/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -350,72 +295,6 @@ class Caller{
 </aside>
 
 
-
-
-  
-    <article id="post-Hello-World" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/18/Hello-World/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/18/Hello-World/" class="archive-article-date">
-  	<time datetime="2017-01-18T13:46:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/18/Hello-World/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -437,7 +316,7 @@ class Caller{
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
 		isTag: false,

@@ -8,22 +8,16 @@
   <link rel="dns-prefetch" href="https://qingmianshou.github.io">
   <title>java内部类 | Z博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###java内部类
-#####链接到内部类当生成一个内部类的对象时，此对象与制造它的外围对象之间就有了一种联系，它能访问其外围对象的所有成员，不需要特殊条件。(原因：在外围对象创建内部类对象时，内部类对象必定会秘密地捕获一个指向那个外围类对象的引用，当内部类访问此外围类的成员时，就会用那个引用来选择外围类的成员，该过程编译器会处理)。
-当需要生成对外部类对象的引用时，使用ClassName.t">
+  <meta name="description" content="java内部类链接到内部类当生成一个内部类的对象时，此对象与制造它的外围对象之间就有了一种联系，它能访问其外围对象的所有成员，不需要特殊条件。(原因：在外围对象创建内部类对象时，内部类对象必定会秘密地捕获一个指向那个外围类对象的引用，当内部类访问此外围类的成员时，就会用那个引用来选择外围类的成员，该过程编译器会处理)。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java内部类">
 <meta property="og:url" content="https://qingmianshou.github.io/2017/08/14/inner-class/index.html">
 <meta property="og:site_name" content="Z博客">
-<meta property="og:description" content="###java内部类
-#####链接到内部类当生成一个内部类的对象时，此对象与制造它的外围对象之间就有了一种联系，它能访问其外围对象的所有成员，不需要特殊条件。(原因：在外围对象创建内部类对象时，内部类对象必定会秘密地捕获一个指向那个外围类对象的引用，当内部类访问此外围类的成员时，就会用那个引用来选择外围类的成员，该过程编译器会处理)。
-当需要生成对外部类对象的引用时，使用ClassName.t">
-<meta property="og:updated_time" content="2017-08-15T01:58:44.671Z">
+<meta property="og:description" content="java内部类链接到内部类当生成一个内部类的对象时，此对象与制造它的外围对象之间就有了一种联系，它能访问其外围对象的所有成员，不需要特殊条件。(原因：在外围对象创建内部类对象时，内部类对象必定会秘密地捕获一个指向那个外围类对象的引用，当内部类访问此外围类的成员时，就会用那个引用来选择外围类的成员，该过程编译器会处理)。">
+<meta property="og:updated_time" content="2017-08-15T02:15:41.593Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java内部类">
-<meta name="twitter:description" content="###java内部类
-#####链接到内部类当生成一个内部类的对象时，此对象与制造它的外围对象之间就有了一种联系，它能访问其外围对象的所有成员，不需要特殊条件。(原因：在外围对象创建内部类对象时，内部类对象必定会秘密地捕获一个指向那个外围类对象的引用，当内部类访问此外围类的成员时，就会用那个引用来选择外围类的成员，该过程编译器会处理)。
-当需要生成对外部类对象的引用时，使用ClassName.t">
+<meta name="twitter:description" content="java内部类链接到内部类当生成一个内部类的对象时，此对象与制造它的外围对象之间就有了一种联系，它能访问其外围对象的所有成员，不需要特殊条件。(原因：在外围对象创建内部类对象时，内部类对象必定会秘密地捕获一个指向那个外围类对象的引用，当内部类访问此外围类的成员时，就会用那个引用来选择外围类的成员，该过程编译器会处理)。">
   
     <link rel="alternative" href="/atom.xml" title="Z博客" type="application/atom+xml">
   
@@ -195,14 +189,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><center></center></p>
-<p>###java内部类<br></p>
-<p>#####</p><p align="left">链接到内部类</p><br>当生成一个内部类的对象时，此对象与制造它的外围对象之间就有了一种联系，它能访问其外围对象的所有成员，不需要特殊条件。(原因：在外围对象创建内部类对象时，内部类对象必定会秘密地捕获一个指向那个外围类对象的引用，当内部类访问此外围类的成员时，就会用那个引用来选择外围类的成员，该过程编译器会处理)。<p></p>
-<p>当需要生成对外部类对象的引用时，使用<code>ClassName.this</code>即可(这样产生的引用自动地具有正确的类型，在编译期就被知晓并受到检查，因此没有任何运行时开销)。</p>
+        <h3 id="java内部类"><a href="#java内部类" class="headerlink" title="java内部类"></a><center>java内部类</center></h3><h5 id="链接到内部类"><a href="#链接到内部类" class="headerlink" title="链接到内部类"></a><label align="left">链接到内部类</label></h5><p>当生成一个内部类的对象时，此对象与制造它的外围对象之间就有了一种联系，它能访问其外围对象的所有成员，不需要特殊条件。(原因：在外围对象创建内部类对象时，内部类对象必定会秘密地捕获一个指向那个外围类对象的引用，当内部类访问此外围类的成员时，就会用那个引用来选择外围类的成员，该过程编译器会处理)。<br><a id="more"></a><br>当需要生成对外部类对象的引用时，使用<code>ClassName.this</code>即可(这样产生的引用自动地具有正确的类型，在编译期就被知晓并受到检查，因此没有任何运行时开销)。</p>
 <p>有时可能需要告知某些对象，去创建其某个内部类的对象，要实现此目的，必须在new表达式中提供对其他外部类对象的引用，这需要使用.new语法。例如 <code>Outer.Inner inner = outer.new Inner();</code> ，”.new”语法能产生正确的作用域，所以不必在调用构造其实限定类名。</p>
-<p>#####</p><p align="left">内部类与向上转型</p><br>当将内部类向上转型为其基类,尤其是转型成一个接口的时候，内部类就有了用武之地。这是因为此内部类对接口的实现对外界是透明的，能够完全不可见，并且不可用。所得到的知识指向基类或接口的引用，所以能够很方便地隐藏实现细节。<p></p>
-<p>######</p><p align="left">工厂模式</p><br>    interface Game{ boolean move();}<br>    interface GameFactory{ Game getGame();}<br>    class Checkers implements Game{<br>        private Checkers(){}<br>        private int moves = 0;<br>        private static final int MOVES = 3;<br>        public boolean move(){<br>            print(“Checkes move “+ moves;);<br>            return ++moves !=MOVES;<br>        }<br>        public static gameFactory factory = new gameFactory(){<br>            public Game getGame(){ return new Checkers(); }<br>        };<br>    }<br>    public class Games{<br>        public static void main(String [] args){<br>           Game checkers =  Checkes.factory.getGame();<br>        }<br>    }<p></p>
-<p>#####</p><p align="left">方法和作用域内的内部类</p><br>以上都只是内部类的典型用途。内部类的语法覆盖了大量的其他的更加难以理解的技术。例如,可以再一个方法里面或者在任意的作用域内定义内部类。理由有两点：<p></p>
+<h5 id="内部类与向上转型"><a href="#内部类与向上转型" class="headerlink" title="内部类与向上转型"></a><label align="left">内部类与向上转型</label></h5><p>当将内部类向上转型为其基类,尤其是转型成一个接口的时候，内部类就有了用武之地。这是因为此内部类对接口的实现对外界是透明的，能够完全不可见，并且不可用。所得到的知识指向基类或接口的引用，所以能够很方便地隐藏实现细节。</p>
+<h6 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a><label align="left">工厂模式</label></h6><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Game</span></span>&#123; <span class="function"><span class="keyword">boolean</span> <span class="title">move</span><span class="params">()</span></span>;&#125;</div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">GameFactory</span></span>&#123; <span class="function">Game <span class="title">getGame</span><span class="params">()</span></span>;&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Checkers</span> <span class="keyword">implements</span> <span class="title">Game</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Checkers</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> moves = <span class="number">0</span>; </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MOVES = <span class="number">3</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">move</span><span class="params">()</span></span>&#123;</div><div class="line">        print(<span class="string">"Checkes move "</span>+ moves;);</div><div class="line">        <span class="keyword">return</span> ++moves !=MOVES;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> gameFactory factory = <span class="keyword">new</span> gameFactory()&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> Game <span class="title">getGame</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> <span class="keyword">new</span> Checkers(); &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Games</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span>&#123;</div><div class="line">       Game checkers =  Checkes.factory.getGame();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><h5 id="方法和作用域内的内部类"><a href="#方法和作用域内的内部类" class="headerlink" title="方法和作用域内的内部类"></a><label align="left">方法和作用域内的内部类</label></h5><p>以上都只是内部类的典型用途。内部类的语法覆盖了大量的其他的更加难以理解的技术。例如,可以再一个方法里面或者在任意的作用域内定义内部类。理由有两点：</p>
 <ol>
 <li>如前所示，实现某个类型的接口，于是可以常见并返回对其的引用。</li>
 <li>解决一个复杂的问题，想创建一个类来辅助解决但又不希望这个类是公共可用的。</li>
@@ -217,89 +208,30 @@
 <li>通过实例初始化实现构造(匿名类不可能有构造器)。</li>
 </ol>
 <p>当定义一个匿名内部类，我们希望使用其外部定义的对象，那么编译器会要求其参数引用是final的，不然会有一个编译时错误信息。</p>
-<p>匿名内部类没有命名构造函数(根本没有名字)，但通过实例初始化，就能够达到为匿名内部类创建构造器的效果。如下：</p>
-<pre><code> abstract class Base{
-     public Base(int i){
-        print(&quot;Base constructor, i=&quot;+i);
-     }
-     public abstract void f();
-}
- public class AnonymousConstructor{
-    public static Base getBase(int i){
-        return new Base(i){}
-        { print(&quot;Inside instance init!&quot;); }
-        public void f(){
-            print(&quot;In anonymous f()&quot; );
-        }
-   }
-}
-</code></pre><p>匿名内部类也有一些限制，只能实现一个接口或者一个抽象类。</p>
-<p>#####</p><p align="left">嵌套类</p><br>如果不需要内部类对象与其外围类对象之间有联系，那么就可以将内部类声明为static，这通常称为嵌套类。普通的内部类对象隐式保存了一个指向外围对象的引用。嵌套类意味着：<p></p>
+<p>匿名内部类没有命名构造函数(根本没有名字)，但通过实例初始化，就能够达到为匿名内部类创建构造器的效果。如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Base</span></span>&#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="title">Base</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</div><div class="line">        print(<span class="string">"Base constructor, i="</span>+i);</div><div class="line">     &#125;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnonymousConstructor</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Base <span class="title">getBase</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Base(i)&#123;&#125;</div><div class="line">        &#123; print(<span class="string">"Inside instance init!"</span>); &#125;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>&#123;</div><div class="line">            print(<span class="string">"In anonymous f()"</span> );</div><div class="line">        &#125;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>匿名内部类也有一些限制，只能实现一个接口或者一个抽象类。</p>
+<h5 id="嵌套类"><a href="#嵌套类" class="headerlink" title="嵌套类"></a><label align="left">嵌套类</label></h5><p>如果不需要内部类对象与其外围类对象之间有联系，那么就可以将内部类声明为static，这通常称为嵌套类。普通的内部类对象隐式保存了一个指向外围对象的引用。嵌套类意味着：</p>
 <ol>
 <li>要创建嵌套类的对象，并不需要其外围类的对象。</li>
 <li>并不能从嵌套类的对象中访问<code>非静态</code>的外围类对象。</li>
 </ol>
 <p>嵌套类与普通类的另一个区别。普通内部类的字段和方法，只能放在类的外部层次上，所以普通的内部类不能有static数据和static字段，也不能包括嵌套类。嵌套类可以包括所有。</p>
-<p>#####</p><p align="left">接口内部的类</p><br>正常情况下，不能在接口中放置任何代码，但是嵌套类可以作为接口的一部分。在接口中的任何类都自动转化成public和static的。因为类是static的，只是将嵌套类置于接口的命名空间内，这并不违反接口的规则。<p></p>
-<pre><code>public interface ClassInInterface{
-    void howdy();
-    class Test implements ClassInInterface{
-        void howdy(){
-            print(&quot;Howdy&quot;);
-        }
-        public static void main(String [] args){
-            new Test().howdy();
-        }
-    }
-}
-</code></pre><p>如果想要创建某些公共代码，使得它们可以被某个接口实现共用，那么使用接口内部的嵌套会显得很方便。</p>
-<p>#####</p><p align="left">使用内部类的原因</p><br>每个内部类都能独立继承一个(接口的)实现，外围类是否实现对内部类没有影响。故内部类可实现“多继承”。<br>内部类的一些特性：<p></p>
+<h5 id="接口内部的类"><a href="#接口内部的类" class="headerlink" title="接口内部的类"></a><label align="left">接口内部的类</label></h5><p>正常情况下，不能在接口中放置任何代码，但是嵌套类可以作为接口的一部分。在接口中的任何类都自动转化成public和static的。因为类是static的，只是将嵌套类置于接口的命名空间内，这并不违反接口的规则。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ClassInInterface</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">howdy</span><span class="params">()</span></span>;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">implements</span> <span class="title">ClassInInterface</span></span>&#123;</div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">howdy</span><span class="params">()</span></span>&#123;</div><div class="line">            print(<span class="string">"Howdy"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span>&#123;</div><div class="line">            <span class="keyword">new</span> Test().howdy();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果想要创建某些公共代码，使得它们可以被某个接口实现共用，那么使用接口内部的嵌套会显得很方便。</p>
+<h5 id="使用内部类的原因"><a href="#使用内部类的原因" class="headerlink" title="使用内部类的原因"></a><label align="left">使用内部类的原因</label></h5><p>每个内部类都能独立继承一个(接口的)实现，外围类是否实现对内部类没有影响。故内部类可实现“多继承”。<br>内部类的一些特性：</p>
 <ol>
 <li>内部类可有多个实例，每个实例都有自己的状态信息，并且与外围类对象的信息相互独立。</li>
 <li>单个外围类中，可以让多个内部类以不同的方式实现统一个借口，或者继承同一个类。</li>
 <li>创建内部咧对象的时刻不依赖与外围类对象的创建。</li>
 <li>内部类没有令人迷惑的“is-a”关系，它就是一个独立的实体。</li>
 </ol>
-<p>#####</p><p align="left">闭包与回调</p><br>闭包(closure)是一个可调用的对象，它记录了一些信息，这些信息来自于创建它的作用域。<br>通过这个定义，可以看出内部类是面相对象的闭包，不仅包括外围类对象(创建内部类的作用域)的信息，还拥有一个指向此外围类对象的引用，在此作用域内，内部类有权操作所有的成员。<br>内部类实现回调：<p></p>
-<pre><code>interface Incrementable{
-    void increment();
-}
-//Simple implement
-class Callee1 implements Incrementable{
-    private int i = 0;
-    public void increment(){
-        i++;
-        print(i);
-    }
-}
-class MyIncrement{
-    public void increment(){ print(&quot;Other operation!&quot;);}
-    static void f(MyIncrement mi){ mi.increment(); } 
-}
-//if the class must implement increment() in some other way ,you must
-//use an inner class ;
-class Callee2 extends MyIncrement{
-    private int i = 0;
-    public void increment(){
-        super.increment();
-        i++;
-        print(i);
-    }
-    private class Closure implements Incrementable{
-        public void increment(){
-            Callee2.this.increment();
-        }
-    }
-    Incrementable getCallbackReference(){
-        return new Closure();
-    }
-}
-class Caller{
-    private Incrementable callbackReference;
-    Caller(Incrementable cbh){callbackReference = cbh;}
-    void go(){ callbackReference.increment();}
-}
-</code></pre><p>内部类不可以被覆盖，即在子类中声明与父类一样的内部类，两者是没有关系的。<br>局部内部类与匿名内部类，如果不需要重载构造函数，可用匿名代替。<br>由于每个类都会产生一个.class文件，其中包含了如何创建该类型的对象的全部信息。<br>内部类有严格的规则：外围类的名称，加上“$”，再加上内部类的名称。<br>如果内部类是匿名的，编译器会简单的产生一个数字作为其标识符。<br>本文摘抄于java编程思想。</p>
+<h5 id="闭包与回调"><a href="#闭包与回调" class="headerlink" title="闭包与回调"></a><label align="left">闭包与回调</label></h5><p>闭包(closure)是一个可调用的对象，它记录了一些信息，这些信息来自于创建它的作用域。<br>通过这个定义，可以看出内部类是面相对象的闭包，不仅包括外围类对象(创建内部类的作用域)的信息，还拥有一个指向此外围类对象的引用，在此作用域内，内部类有权操作所有的成员。<br>内部类实现回调：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Incrementable</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">increment</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Simple implement</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Callee1</span> <span class="keyword">implements</span> <span class="title">Incrementable</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increment</span><span class="params">()</span></span>&#123;</div><div class="line">        i++;</div><div class="line">        print(i);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyIncrement</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increment</span><span class="params">()</span></span>&#123; print(<span class="string">"Other operation!"</span>);&#125;</div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">(MyIncrement mi)</span></span>&#123; mi.increment(); &#125; </div><div class="line">&#125;</div><div class="line"><span class="comment">//if the class must implement increment() in some other way ,you must</span></div><div class="line"><span class="comment">//use an inner class ;</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Callee2</span> <span class="keyword">extends</span> <span class="title">MyIncrement</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increment</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">super</span>.increment();</div><div class="line">        i++;</div><div class="line">        print(i);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Closure</span> <span class="keyword">implements</span> <span class="title">Incrementable</span></span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increment</span><span class="params">()</span></span>&#123;</div><div class="line">            Callee2.<span class="keyword">this</span>.increment();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function">Incrementable <span class="title">getCallbackReference</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Closure();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Caller</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> Incrementable callbackReference;</div><div class="line">    Caller(Incrementable cbh)&#123;callbackReference = cbh;&#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>&#123; callbackReference.increment();&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a><label align="left">最后</label></h3><ol>
+<li>内部类不可以被覆盖，即在子类中声明与父类一样的内部类，两者是没有关系的。</li>
+<li>局部内部类与匿名内部类，如果不需要重载构造函数，可用匿名代替。</li>
+<li>由于每个类都会产生一个.class文件，其中包含了如何创建该类型的对象的全部信息。内部类有严格的规则：外围类的名称，加上“$”，再加上内部类的名称。如果内部类是匿名的，编译器会简单的产生一个数字作为其标识符。</li>
+<li>本文摘抄于java编程思想。</li>
+</ol>
 
       
 
@@ -334,15 +266,15 @@ class Caller{
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">标签1</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">内部类</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">标签2</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">标签n</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌套类</a>
         		</li>
       		
 		</ul>
@@ -538,15 +470,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">标签1</a>
+                <a href="javascript:void(0)" class="js-tag color4">内部类</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">标签2</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">标签n</a>
+                <a href="javascript:void(0)" class="js-tag color4">嵌套类</a>
               </li>
             
             <div class="clearfix"></div>

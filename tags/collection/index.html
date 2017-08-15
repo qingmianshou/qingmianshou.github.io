@@ -6,57 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://qingmianshou.github.io">
-  <title>Z博客</title>
+  <title>Tag: collection | Z博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2048游戏
-	
-	
-	#btn_new{
-	display:block; 
-	margin:5px auto; 
-	width:80px; 
-	padding:10px; 
-	background:#8f7a66; 
-	font-family:Arial; 
-	color:#fff; 
-	border-radius:10px; 
-	text-decoration:none;
-}">
-<meta property="og:type" content="website">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="Z博客">
-<meta property="og:url" content="https://qingmianshou.github.io/game2048/index.html">
+<meta property="og:url" content="https://qingmianshou.github.io/tags/collection/index.html">
 <meta property="og:site_name" content="Z博客">
-<meta property="og:description" content="2048游戏
-	
-	
-	#btn_new{
-	display:block; 
-	margin:5px auto; 
-	width:80px; 
-	padding:10px; 
-	background:#8f7a66; 
-	font-family:Arial; 
-	color:#fff; 
-	border-radius:10px; 
-	text-decoration:none;
-}">
-<meta property="og:updated_time" content="2017-08-03T13:57:24.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Z博客">
-<meta name="twitter:description" content="2048游戏
-	
-	
-	#btn_new{
-	display:block; 
-	margin:5px auto; 
-	width:80px; 
-	padding:10px; 
-	background:#8f7a66; 
-	font-family:Arial; 
-	color:#fff; 
-	border-radius:10px; 
-	text-decoration:none;
-}">
   
     <link rel="alternative" href="/atom.xml" title="Z博客" type="application/atom+xml">
   
@@ -208,751 +165,98 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-	<title>2048游戏</title>
-	<!--<link rel="stylesheet" type="text/css" href="css/main.css">-->
-	<style type="text/css">
-	#btn_new{
-	display:block; 
-	margin:5px auto; 
-	width:80px; 
-	padding:10px; 
-	background:#8f7a66; 
-	font-family:Arial; 
-	color:#fff; 
-	border-radius:10px; 
-	text-decoration:none;
-}
-#main{
-	width:460px;
-	height:460px;
-	padding:20px; 
-	margin:10px auto; 
-	background:#bbada0; 
-	border-radius:10px; 
-	position:relative;
-}
-.main-box{ width:100px; height:100px; border-radius:6px; background:#ccc0b3; position:absolute;}
-.number-cell{ border-radius:6px; font-family:Arial; font-weight:bold; font-size:30px; line-height:100px; text-align:center; position:absolute; color:#000;}
-	</style>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script type="text/javascript">
-	
-documentWidth= window.screen.availWidth;
-gridContainerWidth = 0.92*documentWidth;
-cellSideLength= 0.18 * documentWidth;
-cellSpace = 0.04 * documentWidth;
-
-var startx=0;
-var starty=0;
-var endx=0;
-var endy=0;
-var board = new Array();
-var score = 0;
-var hasConflicted = new Array();
-$(document).ready(function(){
-	$("#btn_new").click(function(){
-		newgame();
-		score=0;
-		updateScore(score);
-	});
-	prepareForMobile();
-	//1.初始化界面
-	newgame();
-	score=0;
-	$("#scorespan").text(score);
-});
-function newgame(){
-	init();
-	//随机生成两个数字
-	generateOneNumber();
-	generateOneNumber();
-}
-function prepareForMobile(){
-	if(documentWidth>500){
-		gridContainerWidth=500;
-		cellSpace=20;
-		cellSideLength=100;
-	}
-	$("#main").css("width",gridContainerWidth);
-	$("#main").css("height",gridContainerWidth);
-	//$("#main").css("width",gridContainerWidth-2*cellSpace);
-	//$("#main").css("height",gridContainerWidth-2*cellSpace);
-	$("#main").css("padding",cellSpace);
-	$("#main").css("border-radius",0.01*gridContainerWidth);
-	
-	$(".main-box").css("width",cellSideLength);
-	$(".main-box").css("height",cellSideLength);
-	$(".main-box").css("border-radius",0.01*cellSideLength);
-}
-function getPosTop(i,j){
-    return cellSpace+i*(cellSpace+cellSideLength);
-}
-
-function getPosLeft(i,j){
-	return cellSpace+j*(cellSpace+cellSideLength);
-}
-function init(){	
-	
-	for(var i=0;i<4;i++){
-		for(var j=0;j<4;j++){
-			var gridCell=$("#box-"+i+"-"+j);
-			gridCell.css("top",getPosTop(i,j));
-			gridCell.css("left",getPosLeft(i,j));
-		}
-	}
-	for(var i=0;i<4;i++){
-		board[i] = new Array();
-		hasConflicted[i] = new Array();
-		for(var j=0;j<4;j++){
-			board[i][j]=0;
-			hasConflicted[i][j]=false;
-		}
-	}
-	updateBoardView();
-}
-function updateBoardView(){
-	$(".number-cell").remove();
-	for(var i=0; i<4;i++){
-		for(var j=0;j<4;j++){
-			$("#main").append('<div class="number-cell" id="number-cell-'+i+'-'+j+'"></div>');
-			var theNumberCell=$('#number-cell-'+i+'-'+j);
-			
-			if(board[i][j]==0){
-				theNumberCell.css({"width":"0","height":"0"});
-				theNumberCell.css("top",getPosTop(i,j)+cellSideLength/2);
-				theNumberCell.css("left",getPosLeft(i,j)+cellSideLength/2);
-			}else{
-				theNumberCell.css('width',cellSideLength);
-                theNumberCell.css('height',cellSideLength);
-                theNumberCell.css('top',getPosTop(i,j));
-                theNumberCell.css('left',getPosLeft(i,j));
-                theNumberCell.css('background-color',getNumberBackgroundColor( board[i][j] ) );
-                theNumberCell.css('color',getNumberColor( board[i][j] ) );
-
-                theNumberCell.text( getNumberText( board[i][j] ) );
-				
-			}
-			hasConflicted[i][j]=false;	
-		}
-		$(".number-cell").css("line-height",cellSideLength+"px");
-		$(".number-cell").css("font-size",0.3*cellSideLength+"px");
-	}
-}
-
-function generateOneNumber(){
-	if(nospace(board))
-		return false;
-	//随机一个位置
-	var randx=parseInt(Math.floor(Math.random()*4));
-	var randy=parseInt(Math.floor(Math.random()*4))
-	
-	var times=0;
-	while(times<50){
-		if(board[randx][randy]==0)
-			break;
-			
-		randx=parseInt(Math.floor(Math.random()*4));	
-		randy=parseInt(Math.floor(Math.random()*4))
-		
-		times++;
-	}
-	if(times==50){
-		for(var i=0;i<4;i++)
-			for(var j=0; j<4; j++){
-				if(doard[i][j]==0){
-					randx=i;
-					randy=j;
-				}
-		}
-	}
-	//随机一个数字
-	var randNumber=Math.random()<0.5? 2:4;
-	//在随机的位置上显示数字
-	board[randx][randy]=randNumber;
-	showNumberWithAnimation(randx,randy,randNumber)
-	return true;
-	
-}
-
-$(document).keydown(function(event){
-	switch(event.keyCode){
-		case 37://left
-			event.preventDefault()
-			if(moveLeft()){
-				setTimeout("generateOneNumber()",210);
-				setTimeout("isgameover()",300);
-			}
-			break;			
-		case 38://up
-			event.preventDefault()
-			if(moveUp()){
-				setTimeout("generateOneNumber()",210);
-				setTimeout("isgameover()",300);
-			}
-			break;
-		case 39://right
-			event.preventDefault()
-			if(moveRight()){
-				setTimeout("generateOneNumber()",210);
-				setTimeout("isgameover()",300);
-			}
-			break;
-		case 40://down
-			event.preventDefault()
-			if(moveDown()){
-				setTimeout("generateOneNumber()",210);
-				setTimeout("isgameover()",300);
-			}
-			break;
-	}
-})
-
-document.addEventListener('touchstart',function(event){
-	startx=event.touches[0].pageX;
-	starty=event.touches[0].pageY;
-})
-
-document.addEventListener('touchmove',function(event){
-	event.preventDefault()
-})
-
-document.addEventListener('touchend',function(event){
-	endx=event.changedTouches[0].pageX;
-	endy=event.changedTouches[0].pageY;
-	
-	var deltax=endx-startx;
-	var deltay=endy-starty;
-	
-	if(Math.abs(deltax)<0.3*documentWidth && Math.abs(deltay)<0.3*documentWidth)
-		return;
-	
-	//x轴进行滑动
-	if(Math.abs(deltax)>=Math.abs(deltay)){
-		if(deltax>0){
-			//move right
-			if(moveRight()){
-				setTimeout("generateOneNumber()",210);
-				setTimeout("isgameover()",300);
-			}
-		}else{
-			//move left	
-			if(moveLeft()){
-				setTimeout("generateOneNumber()",210);
-				setTimeout("isgameover()",300);
-			}
-			
-		}
-	}
-	//y轴进行滑动
-	else{
-		if(deltay>0){
-			//move down
-			if(moveDown()){
-				setTimeout("generateOneNumber()",210);
-				setTimeout("isgameover()",300);
-			}
-		}else{
-			//move up
-			if(moveUp()){
-				setTimeout("generateOneNumber()",210);
-				setTimeout("isgameover()",300);
-			}
-		}	
-	}
-})
-
-function isgameover(){
-	if(nospace(board) && nomove(board)){
-		gameover();	
-	}
-}
-
-
-
-
-function moveLeft(){
-	if(!canMoveLeft(board))
-		return false;
-
-	//moveLeft
-	for(var i=0; i<4;i++)
-		for(var j=1; j<4;j++){
-			if(board[i][j]!=0){
-				for(var k=0; k<j;k++){
-					if(board[i][k]==0 && noBlockHorizontal(i,k,j,board)){
-						//move
-						showMoveAnimation(i,j,i,k)
-						board[i][k]=board[i][j]
-						board[i][j]=0;
-						continue
-					}else if(board[i][k]==board[i][j] && noBlockHorizontal(i,k,j,board) && !hasConflicted[i][k]){
-						//move
-						showMoveAnimation(i,j,i,k)
-						//add
-						board[i][k]+=board[i][j]
-						board[i][j]=0;
-						//addscore
-						score+=board[i][k]
-						updateScore(score)
-						
-						hasConflicted[i][k]=true;	
-						continue
-					}
-				}
-			}
-		}
-		
-	setTimeout("updateBoardView()",200)
-	return true;
-}
-
-function moveRight(){
-	if(!canMoveRight(board))
-		return false;
-
-	//moveRight
-	for(var i=0; i<4;i++)
-		for(var j=2; j>=0;j--){
-			if(board[i][j]!=0){
-				for(var k=3; k>j;k--){
-					if(board[i][k]==0 && noBlockHorizontal(i,k,j,board)){
-						//move
-						showMoveAnimation(i,j,i,k)
-						board[i][k]=board[i][j]
-						board[i][j]=0;
-						continue
-					}else if(board[i][k]==board[i][j] && noBlockHorizontal(i,j,k,board) && !hasConflicted[i][k]){
-						//move
-						showMoveAnimation(i,j,i,k)
-						//add
-						board[i][k] *= 2;
-                        board[i][j] = 0;
-						
-						//addscore
-						score += board[i][k]
-						updateScore(score)
-						
-						hasConflicted[i][k]=true;
-						continue
-						
-					}
-				}
-			}
-		}
-		
-	setTimeout("updateBoardView()",200)
-	return true;
-}
-
-
-
-
-function moveUp(){
-    if( !canMoveUp( board ) )
-        return false;
-    //moveUp
-    for( var j = 0 ; j < 4 ; j ++ )
-        for( var i = 1 ; i < 4 ; i ++ ){
-            if( board[i][j] != 0 ){
-                for( var k = 0 ; k < i ; k ++ ){
-                    if( board[k][j] == 0 && noBlockVertical( j , k , i , board ) ){
-                        showMoveAnimation( i , j , k , j );
-                        board[k][j] = board[i][j];
-                        board[i][j] = 0;
-                        continue;
-                    }
-                    else if( board[k][j] == board[i][j] && noBlockVertical( j , k , i , board ) && !hasConflicted[k][j]){
-                        showMoveAnimation( i , j , k , j );
-                        board[k][j] *= 2;
-                        board[i][j] = 0;
-						//addscore
-						score+=board[k][j]
-						updateScore(score)
-						hasConflicted[k][j]=true;
-                        continue;
-                    }
-                }
-            }
-        }
-    setTimeout("updateBoardView()",200);
-    return true;
-}
-
-function moveDown(){
-
-    if( !canMoveDown( board ) )
-        return false;
-
-    //moveDown
-    for( var j = 0 ; j < 4 ; j ++ )
-        for( var i = 2 ; i>=0 ; i -- ){
-            if( board[i][j] != 0 ){
-                for( var k = 3 ; k >i ; k -- ){
-
-                    if( board[k][j] == 0 && noBlockVertical( j , k , i , board ) ){
-                        showMoveAnimation( i , j , k , j );
-                        board[k][j] = board[i][j];
-                        board[i][j] = 0;
-                        continue;
-                    }
-                    else if( board[k][j] == board[i][j] && noBlockVertical( j , i , k , board ) && !hasConflicted[k][j]){
-                        showMoveAnimation( i , j , k , j );
-                        board[k][j] *= 2;
-                        board[i][j] = 0;
-						
-						//addscore
-						score+=board[k][j]
-						updateScore(score)
-						
-						hasConflicted[k][j] = true;
-						
-                        continue;
-                    }
-                }
-            }
-        }
-
-    setTimeout("updateBoardView()",200);
-    return true;
-}
-
-function gameover(){
-	// $(".over").show();
-	// $(document).click(function(){
-	// 	$(".over").hide();
-	// });
-    alert("GAME OVER!");
-}
-
-
-function getNumberBackgroundColor(number){
-	switch(number){
-	case 2:return "#eee4da"; break	;
-	case 4:return "#ede0c8"; break	;
-	case 8:return "#f2b179"; break	;
-	case 16:return "#f59563"; break;	
-	case 32:return "#f67c5f"; break;	
-	case 64:return "#f65e3b"; break;
-	case 128:return "#edcf72"; break;
-	case 256:return "#edcc61"; break;	
-	case 512:return "#9c0"; break;	
-	case 1024:return "#33b5e5"; break;	
-	case 2048:return "#09c"; break	;
-	case 4096:return "#a6c"; break	;
-	case 8192:return "#93c"; break	;
-	}
-	return "black"
-}
-
-// function getNumberText(number){
-// 	switch(number){
-// 		case 2:return "小白"; break;
-// 		case 4:return "实习生"; break;
-// 		case 8:return "程序员"; break;
-// 		case 16:return "工程师"; break;	
-// 		case 32:return "主管"; break;	
-// 		case 64:return "经理"; break;
-// 		case 128:return "总监"; break;
-// 		case 256:return "总经理"; break;	
-// 		case 512:return "副总裁"; break;	
-// 		case 1024:return "CEO"; break;	
-// 		case 2048:return "总裁"; break	;
-// 		case 4096:return "董事长"; break	;
-// 		case 8192:return "乔布斯"; break	;
-// 	}
-//     return "black";
-// }
-function getNumberText(number){
-	switch(number){
-		case 2:return "2"; break;
-		case 4:return "4"; break;
-		case 8:return "8"; break;
-		case 16:return "16"; break;	
-		case 32:return "32"; break;	
-		case 64:return "64"; break;
-		case 128:return "128"; break;
-		case 256:return "256"; break;	
-		case 512:return "512"; break;	
-		case 1024:return "1024"; break;	
-		case 2048:return "2048"; break	;
-		case 4096:return "4096"; break	;
-		case 8192:return "8192"; break	;
-	}
-    return "black";
-}
-
-function getNumberColor(number){
-	if(number<=4)
-		return "#776e65";
-		
-	return "#ded0c2"
-}
-
-function nospace( board ){
-
-    for( var i = 0 ; i < 4 ; i ++ )
-        for( var j = 0 ; j < 4 ; j ++ )
-            if( board[i][j] == 0 )
-                return false;
-
-    return true;
-}
-
-function canMoveLeft(board){
-	for(var i=0; i<4;i++)
-		for(var j=0; j<4;j++)
-			if(board[i][j]!=0)
-				if(board[i][j-1]==0 || board[i][j-1]==board[i][j])
-					return true;
-					
-		return false;	
-}
-
-function canMoveRight(board){
-	for(var i=0; i<4;i++)
-		for(var j=2; j>=0;j--)
-			if(board[i][j]!=0)
-				if(board[i][j+1]==0 || board[i][j+1]==board[i][j])
-					return true;
-					
-		return false;	
-}
-
-function canMoveUp( board ){
-
-    for( var j = 0 ; j < 4 ; j ++ )
-        for( var i = 1 ; i < 4 ; i ++ )
-            if( board[i][j] != 0 )
-                if( board[i-1][j] == 0 || board[i-1][j] == board[i][j] )
-                    return true;
-
-    return false;
-}
-
-function canMoveDown( board ){
-
-    for( var j = 0 ; j < 4 ; j ++ )
-        for( var i = 2 ; i >= 0 ; i -- )
-            if( board[i][j] != 0 )
-                if( board[i+1][j] == 0 || board[i+1][j] == board[i][j] )
-                    return true;
-
-    return false;
-}
-
-
-
-function noBlockHorizontal(row,coll,col2,board){
-	for(var i=coll+1;i<col2;i++)
-		if(board[row][i]!=0)
-			return false;
-	return true;
-			
-}
-
-function noBlockVertical( col , row1 , row2 , board ){
-    for( var i = row1 + 1 ; i < row2 ; i ++ )
-        if( board[i][col] != 0 )
-            return false;
-    return true;
-}
-
-function nomove(board){
-	if(canMoveLeft(board)||
-	canMoveRight(board)||
-	canMoveUp(board)||
-	canMoveDown(board))
-	return false;
-	
-return true;
-}
-
-function showNumberWithAnimation(i,j,randNumber){
     
-	var numberCell=$('#number-cell-'+i+"-"+j);
-	
-	numberCell.css("background-color",getNumberBackgroundColor(randNumber))
-	numberCell.css("color",getNumberColor(randNumber))
-	numberCell.text(getNumberText( randNumber ))
-	
-	numberCell.animate({
-		width:cellSideLength,
-		height:cellSideLength,
-		top:getPosTop(i,j),
-		left:getPosLeft(i,j)	
-	},50);
-}
-
-function showMoveAnimation( fromx , fromy , tox, toy ){
-	 var numberCell = $('#number-cell-' + fromx + '-' + fromy );
-	numberCell.animate({
-		top:getPosTop(tox,toy),
-		left:getPosLeft(tox,toy)
-	},200)
-}
-
-function updateScore(score){
-	$("#scorespan").text(score)
-}
-
-
-	</script>
-</head>
-<body align="center">
-
-<h1>2048游戏</h1>
-<label class="scorelabel">score:</label><span id="scorespan">0</span><br>
-<br>
-<button id="btn_new">新游戏</button>
-<div id="main">
-	<div class="main-box" id="box-0-0"></div>
-	<div class="main-box" id="box-0-1"></div>
-	<div class="main-box" id="box-0-2"></div>
-	<div class="main-box" id="box-0-3"></div>
-	
-	<div class="main-box" id="box-1-0"></div>
-	<div class="main-box" id="box-1-1"></div>
-	<div class="main-box" id="box-1-2"></div>
-	<div class="main-box" id="box-1-3"></div>
-	
-	<div class="main-box" id="box-2-0"></div>
-	<div class="main-box" id="box-2-1"></div>
-	<div class="main-box" id="box-2-2"></div>
-	<div class="main-box" id="box-2-3"></div>
-	
-	<div class="main-box" id="box-3-0"></div>
-	<div class="main-box" id="box-3-1"></div>
-	<div class="main-box" id="box-3-2"></div>
-	<div class="main-box" id="box-3-3"></div>
-</div>
-
-</body></html>
       
-
       
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/08/15/j-collections2/" class="archive-article-date">
+  	<time datetime="2017-08-15T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-15</time>
+</a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/08/15/j-collections2/">java集合</a>
+    </h1>
+  
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://qingmianshou.github.io/game2048/" alt="微信分享二维码">
-    </div>
-</div>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">collection</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/08/15/j-collections1/" class="archive-article-date">
+  	<time datetime="2017-08-15T02:33:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-15</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
+    	 
   
-  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/08/15/j-collections1/">java集合</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">collection</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
   
 
-  
+    
 
 
           </div>
@@ -977,7 +281,7 @@ function updateScore(score){
 		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

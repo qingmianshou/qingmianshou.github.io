@@ -6,57 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://qingmianshou.github.io">
-  <title>Z博客</title>
+  <title>java集合 | Z博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2048游戏
-	
-	
-	#btn_new{
-	display:block; 
-	margin:5px auto; 
-	width:80px; 
-	padding:10px; 
-	background:#8f7a66; 
-	font-family:Arial; 
-	color:#fff; 
-	border-radius:10px; 
-	text-decoration:none;
-}">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Z博客">
-<meta property="og:url" content="https://qingmianshou.github.io/game2048/index.html">
+  <meta name="description" content="java集合（二）Mapmap接口与类Map：键值对，不包括重复键，一个键对应一个值SortedMap:有序的键值对接口，继承Map接口。TreeMap:有序散列表，实现SortedMap接口，底层通过红黑树实现。HashMap: 基于“拉链法”实现的散列表。Hashtable: 基于“拉链法”实现的散列表，线程安全。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java集合">
+<meta property="og:url" content="https://qingmianshou.github.io/2017/08/15/j-collections2/index.html">
 <meta property="og:site_name" content="Z博客">
-<meta property="og:description" content="2048游戏
-	
-	
-	#btn_new{
-	display:block; 
-	margin:5px auto; 
-	width:80px; 
-	padding:10px; 
-	background:#8f7a66; 
-	font-family:Arial; 
-	color:#fff; 
-	border-radius:10px; 
-	text-decoration:none;
-}">
-<meta property="og:updated_time" content="2017-08-03T13:57:24.646Z">
+<meta property="og:description" content="java集合（二）Mapmap接口与类Map：键值对，不包括重复键，一个键对应一个值SortedMap:有序的键值对接口，继承Map接口。TreeMap:有序散列表，实现SortedMap接口，底层通过红黑树实现。HashMap: 基于“拉链法”实现的散列表。Hashtable: 基于“拉链法”实现的散列表，线程安全。">
+<meta property="og:updated_time" content="2017-08-15T13:03:34.532Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Z博客">
-<meta name="twitter:description" content="2048游戏
-	
-	
-	#btn_new{
-	display:block; 
-	margin:5px auto; 
-	width:80px; 
-	padding:10px; 
-	background:#8f7a66; 
-	font-family:Arial; 
-	color:#fff; 
-	border-radius:10px; 
-	text-decoration:none;
-}">
+<meta name="twitter:title" content="java集合">
+<meta name="twitter:description" content="java集合（二）Mapmap接口与类Map：键值对，不包括重复键，一个键对应一个值SortedMap:有序的键值对接口，继承Map接口。TreeMap:有序散列表，实现SortedMap接口，底层通过红黑树实现。HashMap: 基于“拉链法”实现的散列表。Hashtable: 基于“拉链法”实现的散列表，线程安全。">
   
     <link rel="alternative" href="/atom.xml" title="Z博客" type="application/atom+xml">
   
@@ -208,635 +169,44 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-j-collections2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java集合
+    </h1>
+  
+
+        
+        <a href="/2017/08/15/j-collections2/" class="archive-article-date">
+  	<time datetime="2017-08-15T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-15</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-	<title>2048游戏</title>
-	<!--<link rel="stylesheet" type="text/css" href="css/main.css">-->
-	<style type="text/css">
-	#btn_new{
-	display:block; 
-	margin:5px auto; 
-	width:80px; 
-	padding:10px; 
-	background:#8f7a66; 
-	font-family:Arial; 
-	color:#fff; 
-	border-radius:10px; 
-	text-decoration:none;
-}
-#main{
-	width:460px;
-	height:460px;
-	padding:20px; 
-	margin:10px auto; 
-	background:#bbada0; 
-	border-radius:10px; 
-	position:relative;
-}
-.main-box{ width:100px; height:100px; border-radius:6px; background:#ccc0b3; position:absolute;}
-.number-cell{ border-radius:6px; font-family:Arial; font-weight:bold; font-size:30px; line-height:100px; text-align:center; position:absolute; color:#000;}
-	</style>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script type="text/javascript">
-	
-documentWidth= window.screen.availWidth;
-gridContainerWidth = 0.92*documentWidth;
-cellSideLength= 0.18 * documentWidth;
-cellSpace = 0.04 * documentWidth;
+        <h2 id="java集合（二）"><a href="#java集合（二）" class="headerlink" title="java集合（二）"></a><center>java集合（二）</center></h2><h4 id="Map"><a href="#Map" class="headerlink" title="Map"></a><p align="left" style="color: #000;">Map</p></h4><h6 id="map接口与类"><a href="#map接口与类" class="headerlink" title="map接口与类"></a><p align="left" style="font-size: 15px;color: #000;">map接口与类</p></h6><p>Map：键值对，不包括重复键，一个键对应一个值<br><br>SortedMap:有序的键值对接口，继承Map接口。<br><br>TreeMap:有序散列表，实现SortedMap接口，底层通过红黑树实现。<br><br>HashMap: 基于“拉链法”实现的散列表。<br><br>Hashtable: 基于“拉链法”实现的散列表，线程安全。<br><br><a id="more"></a></p>
+<h6 id="map方法"><a href="#map方法" class="headerlink" title="map方法"></a><p align="left" style="font-size: 15px;color: #000;">map方法</p></h6><p><code>void clear()</code>: 删除所有数据；<br><br><code>boolean containsKey(Object key)</code>: 查询key;<br><br><code>boolean containsValue(Object value)</code>: 查询是否包含value;<br><br><code>Set entrySet()</code>: 返回Map.Entry的Set集合；<br><br><code>Object get(Object key)</code>: 按key返回value,无则返回null,(特别的：key可以为null);<br><br><code>Set keySet()</code>: 返回Map中所有key组成的Set集合;<br><br><code>Object put(Object key, Object value)</code>: 添加或更新键值对；<br><br><code>void putAll(Map map)</code>: 将指定Map中指定的key-value复制到本Map中;<br><br><code>boolean remove(Object key,Object value)</code>: 删除指定的key-value对（java 8）;<br><br>Collection values(): 返回Map里所有的value组成的Collection;</p>
+<p>Java 8 为map新增的方法：<br><br><code>Object compute(Object key,BiFunction remappingFunction)</code>：使用remappingFunction根据原key-value对计算一个新的value。只要新的value不为null，就替换之。若原value不为null，新value为null，删除key-value。同时为null,不改变，返回null;<br><br><code>Object computeAbsent(Object key,Function mappingFunction)</code>: 如果传给该方法的key对应的value为null，则使用key计算一个新的结果，不为null替换。若不包含key该方法可能会添加一组key-value;<br><br><code>Object computeIfPresent(Object key,BiFunction remappingFunction)</code>: 如果传给该方法的key不为null，使用remappingFunction根据原key-value计算一个新的结果，不为null，替换原来的value，计算结果为null，删除key-value；<br><br><code>void forEach(BiConsumer action)</code>: 遍历Map;<br><br><code>Object getOrDefault(Obejct key,V defaultValue)</code>: 获取指定key对应的value，key不存在返回defaultValue;<br><br><code>Object merge(Object key,Object value,BiFunction remappingFunction)</code>: 找到key对应的value，如果为null，直接用传入的value覆盖(可能会添加key-value对)。如果获取的value不为null，则使用remappingFunction根据原value、新value计算一个结果去覆盖;<br><br><code>Object putIfAbsent(Object key,Object value)</code>: 自动检测key对应的value是否为null，如果为null，该方法会用新value替换;<br><br><code>Objet replace(Object key,Object value)</code>: 将指定key对应的value替换，该方法不会添加新key-value对。如果不存在key，返回null;<br><br><code>boolean replace(K key,V oldValue,V newValue)</code>:<br><code>replaceAll(BiFunction function)</code>: 该方法BiFunction对原key-value计算，并将结果做为该key-value对的value值;<br></p>
+<h6 id="HashMap与Hashtable"><a href="#HashMap与Hashtable" class="headerlink" title="HashMap与Hashtable"></a>HashMap与Hashtable<br></h6><p>java8改进了HashMap的实现，使用HashMap存在key冲突时依然具有较好的性能。<br>Hashtable是线程安全的,key不能为null。HashMap是非线程安全的，key可以为null。<br>当时用自定义类作为key时，若重写equals()和hashCode()方法，应该保持两个方法判断标准一致。尽量不要使用可变对象作为Map的key。<br>HashTable的hash表包含如下属性：</p>
+<p>容量(capacity)：hash表中桶的数量。<br><br>初始化容量(initialCapacity): 初始容量，可在构造函数中指定，默认为16，最大为2^31。<br><br>尺寸(size)：当前hash表中的记录数量。<br><br>负载因子(loadFactor):0-1之间，为0表示空的hash表，0.5表示半满的hash表。</p>
+<p>除此之外还有一个负载极限，负载极限决定了hash表的最大填满程度。<br>默认负载极限为0.75,较低的负载极限会提高数据查询性能，但会增加hash表所占用的内存开销，<br>反之亦然。</p>
+<h6 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap<br></h6><p>LinkedHashMap是HashMap的子类，使用双向链表来维护key-value的次序，该链表负责维护Map的迭代顺序(与插入顺序保持一致)。<br>LinkedHashMap 可以避免对HashMap、Hashtable里面的key-value对进行排序，同时又避免了使用TreeMap所增加的成本。<br>LinkedHashMap需要维护元素插入的顺序，性能低于HashMap。在迭代访问全部元素是有较好的性能。</p>
+<h6 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h6><p>Properties是Hashtable的子类，用来操作属性文件。<br>方法：<br><code>String getProperty(String key)</code>:<br><br><code>String getProperty(String key,String defaultValue)</code>:<br><br><code>Object setProperty(String key,String value):</code><br><br><code>void load(InputStream inStream)</code>:追加key-value到Properties。<br><br><code>void store(OutputStream out,String comments)</code>:输出到指定的属性文件。<br></p>
+<h6 id="SortedMap接口和TreeMap"><a href="#SortedMap接口和TreeMap" class="headerlink" title="SortedMap接口和TreeMap"></a>SortedMap接口和TreeMap</h6><p>SortedMap继承自Map，有一个实现类TreeMap。<br>TreeMap就是一个红黑树，每一个key-value就是一个节点。TreeMap存储key-value对需要根据key对节点进行排序。TreeMap能保证所有的key-value处于有序状态。<br>TreeMap也有两种排序方式，自然排序、定制排序。<br>使用自定义类作为TreeMap的key，重写equals()方法和compareTo()应该保持一致，true–&gt;0。</p>
+<h6 id="其他实现类"><a href="#其他实现类" class="headerlink" title="其他实现类"></a>其他实现类</h6><p> <strong><em>WeakHashMap</em></strong>使用与HashMapde的用法基本相似。区别在于，HashMap的key保留了对实际对象的强引用，这意味着只要该HashMap对象不销毁，该HashMap的所有key所引用的对象就不会被垃圾回收，HashMap不会自动删除。但WeakHashMap的key只保留了对实际对象的弱引用，如果key所引用的对象没有被其他强引用变量引用，则这些key所引用的对象可能会被垃圾回收，WeakHahsMap会自动删除这些key所对应的key-value。</p>
+<p> <strong><em>IdentityHashMap</em></strong>提供了与HashMap基本相似的方法，但它要求两个key严格相等才认为两个key相等。</p>
+<p> <strong><em>EnumMap</em></strong>使用时与枚举类一起，所有key都必须是单个枚举类的枚举值。</p>
+<ol>
+<li>EnumMap在内部以数组的形式保存，这种实现非常紧凑、高效。</li>
+<li>EnumMap根据key的自然顺序(枚举值在枚举类中的定义顺序)来维护key-value对的顺序。</li>
+<li>EnumMap不允许使用null作为key,但允许使用null作为value。</li>
+</ol>
 
-var startx=0;
-var starty=0;
-var endx=0;
-var endy=0;
-var board = new Array();
-var score = 0;
-var hasConflicted = new Array();
-$(document).ready(function(){
-	$("#btn_new").click(function(){
-		newgame();
-		score=0;
-		updateScore(score);
-	});
-	prepareForMobile();
-	//1.初始化界面
-	newgame();
-	score=0;
-	$("#scorespan").text(score);
-});
-function newgame(){
-	init();
-	//随机生成两个数字
-	generateOneNumber();
-	generateOneNumber();
-}
-function prepareForMobile(){
-	if(documentWidth>500){
-		gridContainerWidth=500;
-		cellSpace=20;
-		cellSideLength=100;
-	}
-	$("#main").css("width",gridContainerWidth);
-	$("#main").css("height",gridContainerWidth);
-	//$("#main").css("width",gridContainerWidth-2*cellSpace);
-	//$("#main").css("height",gridContainerWidth-2*cellSpace);
-	$("#main").css("padding",cellSpace);
-	$("#main").css("border-radius",0.01*gridContainerWidth);
-	
-	$(".main-box").css("width",cellSideLength);
-	$(".main-box").css("height",cellSideLength);
-	$(".main-box").css("border-radius",0.01*cellSideLength);
-}
-function getPosTop(i,j){
-    return cellSpace+i*(cellSpace+cellSideLength);
-}
-
-function getPosLeft(i,j){
-	return cellSpace+j*(cellSpace+cellSideLength);
-}
-function init(){	
-	
-	for(var i=0;i<4;i++){
-		for(var j=0;j<4;j++){
-			var gridCell=$("#box-"+i+"-"+j);
-			gridCell.css("top",getPosTop(i,j));
-			gridCell.css("left",getPosLeft(i,j));
-		}
-	}
-	for(var i=0;i<4;i++){
-		board[i] = new Array();
-		hasConflicted[i] = new Array();
-		for(var j=0;j<4;j++){
-			board[i][j]=0;
-			hasConflicted[i][j]=false;
-		}
-	}
-	updateBoardView();
-}
-function updateBoardView(){
-	$(".number-cell").remove();
-	for(var i=0; i<4;i++){
-		for(var j=0;j<4;j++){
-			$("#main").append('<div class="number-cell" id="number-cell-'+i+'-'+j+'"></div>');
-			var theNumberCell=$('#number-cell-'+i+'-'+j);
-			
-			if(board[i][j]==0){
-				theNumberCell.css({"width":"0","height":"0"});
-				theNumberCell.css("top",getPosTop(i,j)+cellSideLength/2);
-				theNumberCell.css("left",getPosLeft(i,j)+cellSideLength/2);
-			}else{
-				theNumberCell.css('width',cellSideLength);
-                theNumberCell.css('height',cellSideLength);
-                theNumberCell.css('top',getPosTop(i,j));
-                theNumberCell.css('left',getPosLeft(i,j));
-                theNumberCell.css('background-color',getNumberBackgroundColor( board[i][j] ) );
-                theNumberCell.css('color',getNumberColor( board[i][j] ) );
-
-                theNumberCell.text( getNumberText( board[i][j] ) );
-				
-			}
-			hasConflicted[i][j]=false;	
-		}
-		$(".number-cell").css("line-height",cellSideLength+"px");
-		$(".number-cell").css("font-size",0.3*cellSideLength+"px");
-	}
-}
-
-function generateOneNumber(){
-	if(nospace(board))
-		return false;
-	//随机一个位置
-	var randx=parseInt(Math.floor(Math.random()*4));
-	var randy=parseInt(Math.floor(Math.random()*4))
-	
-	var times=0;
-	while(times<50){
-		if(board[randx][randy]==0)
-			break;
-			
-		randx=parseInt(Math.floor(Math.random()*4));	
-		randy=parseInt(Math.floor(Math.random()*4))
-		
-		times++;
-	}
-	if(times==50){
-		for(var i=0;i<4;i++)
-			for(var j=0; j<4; j++){
-				if(doard[i][j]==0){
-					randx=i;
-					randy=j;
-				}
-		}
-	}
-	//随机一个数字
-	var randNumber=Math.random()<0.5? 2:4;
-	//在随机的位置上显示数字
-	board[randx][randy]=randNumber;
-	showNumberWithAnimation(randx,randy,randNumber)
-	return true;
-	
-}
-
-$(document).keydown(function(event){
-	switch(event.keyCode){
-		case 37://left
-			event.preventDefault()
-			if(moveLeft()){
-				setTimeout("generateOneNumber()",210);
-				setTimeout("isgameover()",300);
-			}
-			break;			
-		case 38://up
-			event.preventDefault()
-			if(moveUp()){
-				setTimeout("generateOneNumber()",210);
-				setTimeout("isgameover()",300);
-			}
-			break;
-		case 39://right
-			event.preventDefault()
-			if(moveRight()){
-				setTimeout("generateOneNumber()",210);
-				setTimeout("isgameover()",300);
-			}
-			break;
-		case 40://down
-			event.preventDefault()
-			if(moveDown()){
-				setTimeout("generateOneNumber()",210);
-				setTimeout("isgameover()",300);
-			}
-			break;
-	}
-})
-
-document.addEventListener('touchstart',function(event){
-	startx=event.touches[0].pageX;
-	starty=event.touches[0].pageY;
-})
-
-document.addEventListener('touchmove',function(event){
-	event.preventDefault()
-})
-
-document.addEventListener('touchend',function(event){
-	endx=event.changedTouches[0].pageX;
-	endy=event.changedTouches[0].pageY;
-	
-	var deltax=endx-startx;
-	var deltay=endy-starty;
-	
-	if(Math.abs(deltax)<0.3*documentWidth && Math.abs(deltay)<0.3*documentWidth)
-		return;
-	
-	//x轴进行滑动
-	if(Math.abs(deltax)>=Math.abs(deltay)){
-		if(deltax>0){
-			//move right
-			if(moveRight()){
-				setTimeout("generateOneNumber()",210);
-				setTimeout("isgameover()",300);
-			}
-		}else{
-			//move left	
-			if(moveLeft()){
-				setTimeout("generateOneNumber()",210);
-				setTimeout("isgameover()",300);
-			}
-			
-		}
-	}
-	//y轴进行滑动
-	else{
-		if(deltay>0){
-			//move down
-			if(moveDown()){
-				setTimeout("generateOneNumber()",210);
-				setTimeout("isgameover()",300);
-			}
-		}else{
-			//move up
-			if(moveUp()){
-				setTimeout("generateOneNumber()",210);
-				setTimeout("isgameover()",300);
-			}
-		}	
-	}
-})
-
-function isgameover(){
-	if(nospace(board) && nomove(board)){
-		gameover();	
-	}
-}
-
-
-
-
-function moveLeft(){
-	if(!canMoveLeft(board))
-		return false;
-
-	//moveLeft
-	for(var i=0; i<4;i++)
-		for(var j=1; j<4;j++){
-			if(board[i][j]!=0){
-				for(var k=0; k<j;k++){
-					if(board[i][k]==0 && noBlockHorizontal(i,k,j,board)){
-						//move
-						showMoveAnimation(i,j,i,k)
-						board[i][k]=board[i][j]
-						board[i][j]=0;
-						continue
-					}else if(board[i][k]==board[i][j] && noBlockHorizontal(i,k,j,board) && !hasConflicted[i][k]){
-						//move
-						showMoveAnimation(i,j,i,k)
-						//add
-						board[i][k]+=board[i][j]
-						board[i][j]=0;
-						//addscore
-						score+=board[i][k]
-						updateScore(score)
-						
-						hasConflicted[i][k]=true;	
-						continue
-					}
-				}
-			}
-		}
-		
-	setTimeout("updateBoardView()",200)
-	return true;
-}
-
-function moveRight(){
-	if(!canMoveRight(board))
-		return false;
-
-	//moveRight
-	for(var i=0; i<4;i++)
-		for(var j=2; j>=0;j--){
-			if(board[i][j]!=0){
-				for(var k=3; k>j;k--){
-					if(board[i][k]==0 && noBlockHorizontal(i,k,j,board)){
-						//move
-						showMoveAnimation(i,j,i,k)
-						board[i][k]=board[i][j]
-						board[i][j]=0;
-						continue
-					}else if(board[i][k]==board[i][j] && noBlockHorizontal(i,j,k,board) && !hasConflicted[i][k]){
-						//move
-						showMoveAnimation(i,j,i,k)
-						//add
-						board[i][k] *= 2;
-                        board[i][j] = 0;
-						
-						//addscore
-						score += board[i][k]
-						updateScore(score)
-						
-						hasConflicted[i][k]=true;
-						continue
-						
-					}
-				}
-			}
-		}
-		
-	setTimeout("updateBoardView()",200)
-	return true;
-}
-
-
-
-
-function moveUp(){
-    if( !canMoveUp( board ) )
-        return false;
-    //moveUp
-    for( var j = 0 ; j < 4 ; j ++ )
-        for( var i = 1 ; i < 4 ; i ++ ){
-            if( board[i][j] != 0 ){
-                for( var k = 0 ; k < i ; k ++ ){
-                    if( board[k][j] == 0 && noBlockVertical( j , k , i , board ) ){
-                        showMoveAnimation( i , j , k , j );
-                        board[k][j] = board[i][j];
-                        board[i][j] = 0;
-                        continue;
-                    }
-                    else if( board[k][j] == board[i][j] && noBlockVertical( j , k , i , board ) && !hasConflicted[k][j]){
-                        showMoveAnimation( i , j , k , j );
-                        board[k][j] *= 2;
-                        board[i][j] = 0;
-						//addscore
-						score+=board[k][j]
-						updateScore(score)
-						hasConflicted[k][j]=true;
-                        continue;
-                    }
-                }
-            }
-        }
-    setTimeout("updateBoardView()",200);
-    return true;
-}
-
-function moveDown(){
-
-    if( !canMoveDown( board ) )
-        return false;
-
-    //moveDown
-    for( var j = 0 ; j < 4 ; j ++ )
-        for( var i = 2 ; i>=0 ; i -- ){
-            if( board[i][j] != 0 ){
-                for( var k = 3 ; k >i ; k -- ){
-
-                    if( board[k][j] == 0 && noBlockVertical( j , k , i , board ) ){
-                        showMoveAnimation( i , j , k , j );
-                        board[k][j] = board[i][j];
-                        board[i][j] = 0;
-                        continue;
-                    }
-                    else if( board[k][j] == board[i][j] && noBlockVertical( j , i , k , board ) && !hasConflicted[k][j]){
-                        showMoveAnimation( i , j , k , j );
-                        board[k][j] *= 2;
-                        board[i][j] = 0;
-						
-						//addscore
-						score+=board[k][j]
-						updateScore(score)
-						
-						hasConflicted[k][j] = true;
-						
-                        continue;
-                    }
-                }
-            }
-        }
-
-    setTimeout("updateBoardView()",200);
-    return true;
-}
-
-function gameover(){
-	// $(".over").show();
-	// $(document).click(function(){
-	// 	$(".over").hide();
-	// });
-    alert("GAME OVER!");
-}
-
-
-function getNumberBackgroundColor(number){
-	switch(number){
-	case 2:return "#eee4da"; break	;
-	case 4:return "#ede0c8"; break	;
-	case 8:return "#f2b179"; break	;
-	case 16:return "#f59563"; break;	
-	case 32:return "#f67c5f"; break;	
-	case 64:return "#f65e3b"; break;
-	case 128:return "#edcf72"; break;
-	case 256:return "#edcc61"; break;	
-	case 512:return "#9c0"; break;	
-	case 1024:return "#33b5e5"; break;	
-	case 2048:return "#09c"; break	;
-	case 4096:return "#a6c"; break	;
-	case 8192:return "#93c"; break	;
-	}
-	return "black"
-}
-
-// function getNumberText(number){
-// 	switch(number){
-// 		case 2:return "小白"; break;
-// 		case 4:return "实习生"; break;
-// 		case 8:return "程序员"; break;
-// 		case 16:return "工程师"; break;	
-// 		case 32:return "主管"; break;	
-// 		case 64:return "经理"; break;
-// 		case 128:return "总监"; break;
-// 		case 256:return "总经理"; break;	
-// 		case 512:return "副总裁"; break;	
-// 		case 1024:return "CEO"; break;	
-// 		case 2048:return "总裁"; break	;
-// 		case 4096:return "董事长"; break	;
-// 		case 8192:return "乔布斯"; break	;
-// 	}
-//     return "black";
-// }
-function getNumberText(number){
-	switch(number){
-		case 2:return "2"; break;
-		case 4:return "4"; break;
-		case 8:return "8"; break;
-		case 16:return "16"; break;	
-		case 32:return "32"; break;	
-		case 64:return "64"; break;
-		case 128:return "128"; break;
-		case 256:return "256"; break;	
-		case 512:return "512"; break;	
-		case 1024:return "1024"; break;	
-		case 2048:return "2048"; break	;
-		case 4096:return "4096"; break	;
-		case 8192:return "8192"; break	;
-	}
-    return "black";
-}
-
-function getNumberColor(number){
-	if(number<=4)
-		return "#776e65";
-		
-	return "#ded0c2"
-}
-
-function nospace( board ){
-
-    for( var i = 0 ; i < 4 ; i ++ )
-        for( var j = 0 ; j < 4 ; j ++ )
-            if( board[i][j] == 0 )
-                return false;
-
-    return true;
-}
-
-function canMoveLeft(board){
-	for(var i=0; i<4;i++)
-		for(var j=0; j<4;j++)
-			if(board[i][j]!=0)
-				if(board[i][j-1]==0 || board[i][j-1]==board[i][j])
-					return true;
-					
-		return false;	
-}
-
-function canMoveRight(board){
-	for(var i=0; i<4;i++)
-		for(var j=2; j>=0;j--)
-			if(board[i][j]!=0)
-				if(board[i][j+1]==0 || board[i][j+1]==board[i][j])
-					return true;
-					
-		return false;	
-}
-
-function canMoveUp( board ){
-
-    for( var j = 0 ; j < 4 ; j ++ )
-        for( var i = 1 ; i < 4 ; i ++ )
-            if( board[i][j] != 0 )
-                if( board[i-1][j] == 0 || board[i-1][j] == board[i][j] )
-                    return true;
-
-    return false;
-}
-
-function canMoveDown( board ){
-
-    for( var j = 0 ; j < 4 ; j ++ )
-        for( var i = 2 ; i >= 0 ; i -- )
-            if( board[i][j] != 0 )
-                if( board[i+1][j] == 0 || board[i+1][j] == board[i][j] )
-                    return true;
-
-    return false;
-}
-
-
-
-function noBlockHorizontal(row,coll,col2,board){
-	for(var i=coll+1;i<col2;i++)
-		if(board[row][i]!=0)
-			return false;
-	return true;
-			
-}
-
-function noBlockVertical( col , row1 , row2 , board ){
-    for( var i = row1 + 1 ; i < row2 ; i ++ )
-        if( board[i][col] != 0 )
-            return false;
-    return true;
-}
-
-function nomove(board){
-	if(canMoveLeft(board)||
-	canMoveRight(board)||
-	canMoveUp(board)||
-	canMoveDown(board))
-	return false;
-	
-return true;
-}
-
-function showNumberWithAnimation(i,j,randNumber){
-    
-	var numberCell=$('#number-cell-'+i+"-"+j);
-	
-	numberCell.css("background-color",getNumberBackgroundColor(randNumber))
-	numberCell.css("color",getNumberColor(randNumber))
-	numberCell.text(getNumberText( randNumber ))
-	
-	numberCell.animate({
-		width:cellSideLength,
-		height:cellSideLength,
-		top:getPosTop(i,j),
-		left:getPosLeft(i,j)	
-	},50);
-}
-
-function showMoveAnimation( fromx , fromy , tox, toy ){
-	 var numberCell = $('#number-cell-' + fromx + '-' + fromy );
-	numberCell.animate({
-		top:getPosTop(tox,toy),
-		left:getPosLeft(tox,toy)
-	},200)
-}
-
-function updateScore(score){
-	$("#scorespan").text(score)
-}
-
-
-	</script>
-</head>
-<body align="center">
-
-<h1>2048游戏</h1>
-<label class="scorelabel">score:</label><span id="scorespan">0</span><br>
-<br>
-<button id="btn_new">新游戏</button>
-<div id="main">
-	<div class="main-box" id="box-0-0"></div>
-	<div class="main-box" id="box-0-1"></div>
-	<div class="main-box" id="box-0-2"></div>
-	<div class="main-box" id="box-0-3"></div>
-	
-	<div class="main-box" id="box-1-0"></div>
-	<div class="main-box" id="box-1-1"></div>
-	<div class="main-box" id="box-1-2"></div>
-	<div class="main-box" id="box-1-3"></div>
-	
-	<div class="main-box" id="box-2-0"></div>
-	<div class="main-box" id="box-2-1"></div>
-	<div class="main-box" id="box-2-2"></div>
-	<div class="main-box" id="box-2-3"></div>
-	
-	<div class="main-box" id="box-3-0"></div>
-	<div class="main-box" id="box-3-1"></div>
-	<div class="main-box" id="box-3-2"></div>
-	<div class="main-box" id="box-3-3"></div>
-</div>
-
-</body></html>
       
 
       
@@ -865,6 +235,17 @@ function updateScore(score){
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">collection</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -915,7 +296,7 @@ function updateScore(score){
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://qingmianshou.github.io/game2048/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://qingmianshou.github.io/2017/08/15/j-collections2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -927,6 +308,16 @@ function updateScore(score){
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/15/j-collections1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java集合</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -975,7 +366,7 @@ function updateScore(score){
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

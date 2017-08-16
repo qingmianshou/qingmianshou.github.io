@@ -6,18 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://qingmianshou.github.io">
-  <title>java集合(一) | Z博客</title>
+  <title>Tag: map | Z博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java集合（一）ListList接口在Collection的基础上添加了大量的方法，使得可以在List中间插入和删除元素。有两种类型的List:">
-<meta property="og:type" content="article">
-<meta property="og:title" content="java集合(一)">
-<meta property="og:url" content="https://qingmianshou.github.io/2017/08/15/j-collections1/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Z博客">
+<meta property="og:url" content="https://qingmianshou.github.io/tags/map/index.html">
 <meta property="og:site_name" content="Z博客">
-<meta property="og:description" content="java集合（一）ListList接口在Collection的基础上添加了大量的方法，使得可以在List中间插入和删除元素。有两种类型的List:">
-<meta property="og:updated_time" content="2017-08-15T13:12:23.545Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java集合(一)">
-<meta name="twitter:description" content="java集合（一）ListList接口在Collection的基础上添加了大量的方法，使得可以在List中间插入和删除元素。有两种类型的List:">
+<meta name="twitter:title" content="Z博客">
   
     <link rel="alternative" href="/atom.xml" title="Z博客" type="application/atom+xml">
   
@@ -169,93 +165,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-j-collections1" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      java集合(一)
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/08/15/j-collections2/" class="archive-article-date">
+  	<time datetime="2017-08-15T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-15</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/08/15/j-collections2/">java集合(二)</a>
     </h1>
   
 
-        
-        <a href="/2017/08/15/j-collections1/" class="archive-article-date">
-  	<time datetime="2017-08-15T02:33:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="java集合（一）"><a href="#java集合（一）" class="headerlink" title="java集合（一）"></a><center>java集合（一）</center></h2><h4 id="List"><a href="#List" class="headerlink" title="List"></a><p align="left" style="color:#000;">List</p></h4><p>List接口在Collection的基础上添加了大量的方法，使得可以在List中间插入和删除元素。有两种类型的List:<br><a id="more"></a></p>
-<ol>
-<li>ArrayList，它长于随机访问元素，但是List中间插入和移除元素较慢。</li>
-<li>LinkedList，在中间插入和删除元素代价较低，提供了优化的顺序访问。随机访问较慢，无界。</li>
-</ol>
-<p>在java8中，List接口添加了两个默认方法，</p>
-<ol>
-<li><code>void replaceAll(UnaryOperator operator);</code> 根据operator指定的计算规则重新设置List集合的所有元素。</li>
-<li><code>void sort(Comparator c);</code> 根据Comparator参数对List集合的元素排序。<br>以上两个函数都可使用Lambda表达式作为参数，例：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">List books = <span class="keyword">new</span> ArrayList();</div><div class="line">books.add(<span class="keyword">new</span> String(<span class="string">"xxx"</span>));</div><div class="line">books.add(<span class="keyword">new</span> String(<span class="string">"sxxx"</span>));</div><div class="line">books.sort((o1,o2)-&gt;((String)o1).length()-((String)o2).length());</div><div class="line">books.replaceAll(ele-&gt;((String)ele).length());</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>对于List中的对象判等，如indexOf()、contains()等都是通过对象的<code>equals()</code>方法进行比较的。</p>
-<p>List除了iterator()方法外，还提供了一个listIterator()方法，该方法返回一个ListIterator对象，它继承自Iterator接口。<br>在其基础上添加了如下方法：</p>
-<ol>
-<li><code>boolean hasPrevious();</code> 返回该迭代器关联的集合是否还有上一个元素。</li>
-<li><code>Object previous();</code> 返回该迭代器的上一个元素。</li>
-<li><code>void add(Object o);</code> 在指定位置插入一个元素。</li>
-</ol>
-<p>ListIterator与Iterator相比增加了向前迭代的功能，同时还可以向即可中添加元素(Iterator只能删除元素)。</p>
-<h6 id="ArrayList和Vector"><a href="#ArrayList和Vector" class="headerlink" title="ArrayList和Vector"></a><p align="left" style="font-size: 15px;color: #000;">ArrayList和Vector</p></h6><p>ArrayList与Vector是List的两个典型实现，支持List接口的全部功能，且都是基于数组实现的List类，封装了一个动态的、允许再分配的Object[]的数组，使用initalCapacity参数来设置长度,不指定默认为10。当添加元素超过数组长度是 initalCapacity会自动增加。为减少重分配的次数，可使用<code>ensureCapacity(int minCapacity)</code>方法一次性增加initalCapacity。<br>ArrayList与Vector的显著区别在于前者是线程不安全的。Vector不推荐被使用，有很多缺点，如果需要使用线程安全的集合，可以用Collections工具类中的方法将ArrayList转化成线程安全的。</p>
-<p>Vector提供了Stack子类，性能较差，如果程序中需要使用栈，可以考虑使用ArrayDeque。</p>
-<h6 id="固定长度的List"><a href="#固定长度的List" class="headerlink" title="固定长度的List"></a><p align="left" style="font-size:15px;color: #000;">固定长度的List</p></h6><p>Arrays工具类中提供类<code>asList(Object... a)</code>方法，可以将一个宿主或指定个数的对象转换成一个List,这个List集合不是ArrayList的实现类，而是Arrays的内部类ArrayList的实例，长度固定，只提供遍历访问，不可增删。</p>
-<h4 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a><p align="left" style="color: #000;">Queue</p></h4><p>队列通常是“先进先出(FIFO)”的容器。</p>
-<ul>
-<li><code>void add(Obejct e)</code>:将指定元素加入到尾部。</li>
-<li><code>Object element()</code>:获取队列头部元素，但不删除。如果队列为空，<code>throw NoSuchElementException</code>。</li>
-<li><code>boolean offer(Object o)</code>:与add功能一样，但当使用有容量限制的队列时更好用。</li>
-<li><code>Object peek()</code>:获取头部元素，但不删除，队列为空返回null。</li>
-<li><code>Object poll()</code>:功能与peek()一样，区别在于，此函数删除元素。</li>
-<li><code>Object remove()</code>:获取头部元素，并删除该元素。如果队列为空，<code>throw NoSuchElementException</code>。</li>
-</ul>
-<p>Queue接口有一个PriorityQueue实现类。另外，Deque(双端队列，可从两头添加删除元素)接口继承了Queue,因此Deque实现类可以当成队列或者栈使用，Java为Deque提供了ArrayQueue(内部数组实现)和LinkedList(链表实现)两个实现类。</p>
-<h6 id="PriorityQueue"><a href="#PriorityQueue" class="headerlink" title="PriorityQueue"></a><p align="left" style="font-size:15px;color: #000;">PriorityQueue</p></h6><p>优先队列声明下一个弹出的元素是具有最高优先级的。插入一个对象时，这个对象会在队列中被排序。在PriorityQueue中默认排序是对象在队列中的自然排序，可以通过Comparator来修改这个顺序。PriorityQueue可以确保<code>peek()</code>、<code>poll()</code>、<code>remove()</code>获取的元素是优先级最高的。</p>
-<h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a><p align="left" style="color: #000;">最后</p></h4><ol>
-<li>如果需要遍历Arrayust、Vector集合，应使用get()来遍历，性能好（底层使用数组映射）；对LinkedList,采用迭代器(Iterator)。</li>
-<li>如果需要执行插入、删除操作来改变包含大量数据的List，可考虑使用LinkedList(使用ArrayList等集合可能需要重新分配内部数组大小，效果较差)。</li>
-<li>多线程访问，可考虑使用Collections将集合包装成线程安全的集合。 </li>
-</ol>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -265,123 +204,25 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">list</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">queue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">map</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://qingmianshou.github.io/2017/08/15/j-collections1/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/08/15/j-collections2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          java集合(二)
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/08/14/inner-class/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java内部类</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -404,9 +245,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://qingmianshou.github.io">
-  <title>Tag: map | Z博客</title>
+  <title>java集合（三） | Z博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Z博客">
-<meta property="og:url" content="https://qingmianshou.github.io/tags/map/index.html">
+  <meta name="description" content="java集合（三）SetSet与Map之间的关系非常密切。虽然Map中的元素是key-value对，Set中元素是单个对象，但是把value当成是key的附庸，这样就可以同等对待Set和Map。Map提供了一个Entry的内部类来封装key-value。事实上，Java源码是先实现Map,然后通过包装一个所有value为null的Map就实现了Set集合。
+子类实现的名字也与Map类似，有：Ha">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java集合（三）">
+<meta property="og:url" content="https://qingmianshou.github.io/2017/08/17/j-collections3/index.html">
 <meta property="og:site_name" content="Z博客">
+<meta property="og:description" content="java集合（三）SetSet与Map之间的关系非常密切。虽然Map中的元素是key-value对，Set中元素是单个对象，但是把value当成是key的附庸，这样就可以同等对待Set和Map。Map提供了一个Entry的内部类来封装key-value。事实上，Java源码是先实现Map,然后通过包装一个所有value为null的Map就实现了Set集合。
+子类实现的名字也与Map类似，有：Ha">
+<meta property="og:updated_time" content="2017-08-17T08:55:25.708Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Z博客">
+<meta name="twitter:title" content="java集合（三）">
+<meta name="twitter:description" content="java集合（三）SetSet与Map之间的关系非常密切。虽然Map中的元素是key-value对，Set中元素是单个对象，但是把value当成是key的附庸，这样就可以同等对待Set和Map。Map提供了一个Entry的内部类来封装key-value。事实上，Java源码是先实现Map,然后通过包装一个所有value为null的Map就实现了Set集合。
+子类实现的名字也与Map类似，有：Ha">
   
     <link rel="alternative" href="/atom.xml" title="Z博客" type="application/atom+xml">
   
@@ -165,36 +172,67 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-j-collections3" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/15/j-collections2/" class="archive-article-date">
-  	<time datetime="2017-08-15T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/15/j-collections2/">java集合(二)</a>
+    <h1 class="article-title" itemprop="name">
+      java集合（三）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/08/17/j-collections3/" class="archive-article-date">
+  	<time datetime="2017-08-17T05:41:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="java集合（三）"><a href="#java集合（三）" class="headerlink" title="java集合（三）"></a><center>java集合（三）</center></h2><h4 id="Set"><a href="#Set" class="headerlink" title="Set"></a><p align="left" style="color: #000;">Set</p></h4><p>Set与Map之间的关系非常密切。虽然Map中的元素是key-value对，Set中元素是单个对象，但是把value当成是key的附庸，这样就可以同等对待Set和Map。Map提供了一个Entry的内部类来封装key-value。事实上，Java源码是先实现Map,然后通过包装一个所有value为null的Map就实现了Set集合。</p>
+<p>子类实现的名字也与Map类似，有：HashSet、LinkedHashSet、TreeSet、EnumSet。<br>与Map一致，在判断两个对象是否相等时，应该保证equals()与compareTo()有一致的结果。</p>
+<h6 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a><p align="left" style="color:#000;">TreeSet</p></h6><p>TreeSet是Sorted接口的实现类，TreeSet确保了集合元素的排序状态。TreeSet有一些额外的函数。</p>
+<p><code>Comparator comparator()</code>:如果采用定制排序，使用定制排序所使用的的Comparator，采用自然排序，则返回null。<br><br><code>Object first(),Object last()</code>: 返回第一个、最后一个 。<br><br><code>Object lower(Object e)</code>: 返回小于指定元素的最大元素，参考元素不需要在TreeSet中。<br><br><code>Object higher(Object e)</code>: 返回大于指定元素的最小元素。</p>
+<p><code>SortedSet subSet(Object fromElement,Object toElement)</code>: 返回子集合(前者包含，后者不包含)。<br><br><code>SortedSet headSet(Object toElement)</code>:返回小于toElement的元素集合。<br><br><code>SortedSet tailSet(Object fromElement)</code>: 返回大于等于fromElement的元素结合。</p>
+<h6 id="EnumSet"><a href="#EnumSet" class="headerlink" title="EnumSet"></a><p align="left" style="color:#000;">EnumSet</p></h6><p>专门为枚举类设计，EnumSet中的元素一定是指定的枚举类型(显式或隐式)。EnumSet中元素的顺序由枚举值在Enum类中定义的顺序确定。EnumSet不允许加入null元素，EnumsSet没有暴露任何构造函数来创建该类的实例，只有通过提供的方法创建。<br>常见的创建方法：</p>
+<p>allOf(Class type): 创建包含指定枚举类中所有枚举值的集合。<br><br>complementOf(EnumSet s): 创建一个其元素类型与指定EnumSet里元素类型相同的EnumSet集合。与原集合互补。<br><br>copyOf(Collection e):使用普通集合创建。<br><br>copyOf(EnumSet e): 创建一个与指定EnumSet具有相同元素类型、相同集合元素的集合。<br><br>noneOf(Class type): 创建指定元素类型的空集合。<br><br>of(E first,E …rest): 创建一个包含一个或多个(类型相同)枚举值的EnumSet集合。<br><br>range(E from, E to): 创建一个包含从from到to枚举值范围内所有枚举值的集合。</p>
+<h4 id="Collections集合工具类"><a href="#Collections集合工具类" class="headerlink" title="Collections集合工具类"></a><p align="left" style="color: #000;">Collections集合工具类</p></h4><p>Collections主要是对集合进行各种操作，如：集合合并复制、集合元素查找、集合排序、求最大(小)值，创建空集合等。下面给出常用的几个：</p>
+<p><code>sort(List&lt;T&gt; list,Comparator&lt;? super T&gt; com)</code>;<br><br><code>addAll(Collection&lt;? super T&gt; c,T... element)</code>;<br><br><code>int binarySearch(List&lt;? extends Comparable&lt;? super T&gt;&gt; list, T key)</code>:<br><br><code>int binarySearch(List&lt;? extends T&gt; list, T key, Comparator&lt;? super T&gt; c)</code>:<br>二分查找必须保证List有序，才能正常工作。返回值为索引。<br><br><code>Object max(Collection coll)/max(Collection coll,Comparator cmp)</code>：<br><code>Object min(..)/min(..)</code>:同上</p>
+<p><code>boolean replaceAll(List list,Object oldVal, Object newVal)</code>:<br><code>copy(dest,src)</code>:<br><br><code>void fill(List&lt;? super T&gt; list,T o)</code>:<br><br><code>int frequency(Collection&lt;?&gt; c, Object o)</code>:<br>查找某个元素的频率。<br></p>
+<p>提一个有意思的函数：<code>shuffle(List list)</code>，它能随机化list中的数据。对于要生成一组乱序的数据或打乱数据很有用。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -204,25 +242,110 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">map</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">set</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://qingmianshou.github.io/2017/08/17/j-collections3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/08/15/j-collections2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java集合(二)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -245,9 +368,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
